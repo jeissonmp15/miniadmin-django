@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliente - {{ instancia.nombre}}</title>
+</head>
+<body>
+    <h1>Actualizar Cliente</h1>
+    <br>
+
+    <form action="{% url 'clientes:update' instancia.id %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend><h1>{{ instancia.nombre }}</h1></legend>
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+            <label for="nombre">Nombre del Cliente: </label>
+            <input type="text" name="nombre" id="nombre" value="{{ instancia.nombre }}"><br><br>
+            
+            <label for="nit">NIT: </label>
+            <input type="text" name="nit" id="nit" value="{{ instancia.nit }}"><br><br>     
+
+            <label for="nombre_contacto">Nombre del contacto: </label>
+            <input type="text" name="nombre_contacto" id="nombre_contacto" value="{{ instancia.nombre_contacto }}"><br><br>     
+
+            <label for="tel">Número de teléfono: </label>
+            <input type="number" name="tel" id="tel" value="{{ instancia.telefono }}"><br><br>     
+
+            <label for="direccion">Dirección: </label>
+            <input type="text" name="direccion" id="direccion" value="{{ instancia.direccion }}"><br><br>
+
+            <label for="correo">Correo electrónico: </label>
+            <input type="email" name="correo" id="correo" value="{{ instancia.correo }}"><br><br>     
+
+        </fieldset>
+        <input type="submit" value="Actualizar">
+        <a href="{% url 'clientes:get' %}">Lista</a>
+        </form>
+</body>
+</html>

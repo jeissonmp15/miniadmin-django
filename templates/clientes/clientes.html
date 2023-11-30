@@ -7,19 +7,18 @@
     <title>Clientes</title>
 </head>
 <body>
+    <h1>Lista de Clientes</h1>
+    <br>
     {% if lista_clientes %}
         <ul>
         {% for cl in lista_clientes %}
-            <li>{{ cl.nombre }}</li>
-            <li>{{ cl.nit }}</li>
-            <li>{{ cl.nombre_contacto }}</li>
-            <li>{{ cl.telefono }}</li>
-            <li>{{ cl.correo }}</li>
-            <li>{{ cl.direccion }}</li>
+            <li><a href="{% url 'clientes:detail' cl.id %}">{{ cl.nombre }}     <a href="{% url 'clientes:delete' cl.id %}">X</a> </a></li>
         {% endfor %}
         </ul>
     {% else %}
         <p>No existen clientes.</p>
-{% endif %}
+    {% endif %}
+
+    <a href="{% url 'clientes:create' %}">Crear Cliente</a>
 </body>
 </html>

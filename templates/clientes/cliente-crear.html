@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliente</title>
+</head>
+<body>
+    <h1>Crear Cliente</h1>
+    <br>
+
+    <form action="{% url 'clientes:create' %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend><h1>Nuevo Cliente</h1></legend>
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+            <label for="nombre">Nombre del Cliente: </label>
+            <input type="text" name="nombre" id="nombre" value=""><br><br>
+            
+            <label for="nit">NIT: </label>
+            <input type="text" name="nit" id="nit" value=""><br><br>     
+
+            <label for="nombre_contacto">Nombre del contacto: </label>
+            <input type="text" name="nombre_contacto" id="nombre_contacto" value=""><br><br>     
+
+            <label for="tel">Número de teléfono: </label>
+            <input type="number" name="tel" id="tel" value=""><br><br>     
+
+            <label for="direccion">Dirección: </label>
+            <input type="text" name="direccion" id="direccion" value=""><br><br>
+
+            <label for="correo">Correo electrónico: </label>
+            <input type="email" name="correo" id="correo" value=""><br><br>     
+
+        </fieldset>
+        <input type="submit" value="Crear">
+        </form>
+        <a href="{% url 'clientes:get' %}">Ir a la lista</a>
+</body>
+</html>

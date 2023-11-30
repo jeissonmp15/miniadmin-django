@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliente - {{ instancia.nombre }}</title>
+</head>
+<body>
+    <h1>Instancia de Cliente</h1>
+    <br>
+
+    <ul>
+        <li><a href="{% url 'clientes:update' instancia.id %}">{{ instancia.nombre }}</a></li>
+        <li>{{ instancia.nit }}</li>
+        <li>{{ instancia.nombre_contacto }}</li>
+        <li>{{ instancia.telefono }}</li>
+        <li>{{ instancia.correo }}</li>
+        <li>{{ instancia.direccion }}</li>
+    </ul>
+
+</body>
+</html>
