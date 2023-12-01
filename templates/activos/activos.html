@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activos</title>
+</head>
+<body>
+    <h1>Lista de Activos</h1>
+    <br>
+    {% if lista %}
+        <ul>
+        {% for cl in lista %}
+            <li><a href="{% url 'activos:detail' cl.id %}">{{ cl.nombre }}     <a href="{% url 'activos:delete' cl.id %}">X</a> </a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No existen clientes.</p>
+    {% endif %}
+
+    <a href="{% url 'activos:create' %}">Crear Activo</a>
+</body>
+</html>

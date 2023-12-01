@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activo - {{ instancia.nombre }}</title>
+</head>
+<body>
+    <h1>Instancia de Activo</h1>
+    <br>
+
+    <ul>
+        <li><a href="{% url 'activos:update' instancia.id %}">{{ instancia.nombre }}</a></li>
+        <li>{{ instancia.placa }}</li>
+        <li>{{ instancia.tipo_activo }}</li>
+        <li>{{ instancia.cliente }}</li>
+    </ul>
+
+</body>
+</html>

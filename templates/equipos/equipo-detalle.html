@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipo - {{ instancia.imei }}</title>
+</head>
+<body>
+    <h1>Instancia de Equipo</h1>
+    <br>
+
+    <ul>
+        <li><a href="{% url 'equipos:update' instancia.id %}">{{ instancia.imei }}</a></li>
+        <li>{{ instancia.simcard }}</li>
+        <li>{{ instancia.operador }}</li>
+        <li>{{ instancia.activo }}</li>
+        <li>{{ instancia.cliente }}</li>
+    </ul>
+
+</body>
+</html>

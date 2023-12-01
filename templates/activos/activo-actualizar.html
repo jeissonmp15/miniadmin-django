@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activos - {{ instancia.nombre}}</title>
+</head>
+<body>
+    <h1>Actualizar Activo</h1>
+    <br>
+
+    <form action="{% url 'activos:update' instancia.id %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend><h1>{{ instancia.nombre }}</h1></legend>
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+            <label for="nombre">Nombre del Activo: </label>
+            <input type="text" name="nombre" id="nombre" value="{{ instancia.nombre }}"><br><br>
+            
+            <label for="placa">Placa del Activo: </label>
+            <input type="text" name="placa" id="placa" value="{{ instancia.placa }}"><br><br>   
+            
+            <h4>Tipo de Activo:</h4>
+            <input type="radio" name="tipo_activo" id="personal" value="0">    
+            <label for="personal">Personal</label>
+
+            <input type="radio" name="tipo_activo" id="vehicular" value="1">
+            <label for="vehicular">Vehicular</label> <br>
+
+            <h4>Cliente:</h4>
+            <select name="cliente_id" id="cliente">
+                {% for cl in clientes %}
+                <option value="{{cl.id}}">{{cl.nombre}}</option>
+                {% endfor %}
+            </select> 
+
+        </fieldset>
+        <input type="submit" value="Actualizar">
+        <a href="{% url 'activos:get' %}">Lista</a>
+        </form>
+</body>
+</html>
