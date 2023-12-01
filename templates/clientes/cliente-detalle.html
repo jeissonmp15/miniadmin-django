@@ -11,7 +11,7 @@
     <br>
 
     <ul>
-        <li><a href="{% url 'clientes:update' instancia.id %}">{{ instancia.nombre }}</a></li>
+        <li><a href="{% url 'clientes:detail' cl.id %}">{{ cl.nombre }}</a>{{ instancia.nombre }}</li>
         <li>{{ instancia.nit }}</li>
         <li>{{ instancia.nombre_contacto }}</li>
         <li>{{ instancia.telefono }}</li>

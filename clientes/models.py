@@ -10,6 +10,9 @@ class Clientes(models.Model):
     direccion = models.CharField(max_length=100)
     correo = models.EmailField()
 
+    def __str__(self) -> str:
+        return self.nombre
+
     class Meta:
         verbose_name = 'Cliente'
         verbose_name_plural = 'Clientes'
