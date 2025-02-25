@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 
 from clientes.models import Clientes
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 
 def get(request):
@@ -31,6 +33,8 @@ def update(request, cliente_id):
 
 
 def post(request):
+    print(request.method)
+    print(request.POST)
     if request.method == 'POST':
         Clientes.objects.create(
             nombre=request.POST['nombre'],
@@ -47,4 +51,4 @@ def post(request):
 def delete(request, cliente_id):
     cliente = get_object_or_404(Clientes, pk=cliente_id)
     cliente.delete()
-    return get(request)
+    return HttpResponseRedirect(reverse('clientes:get'))

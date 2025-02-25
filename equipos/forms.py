@@ -1,7 +1,10 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, fields
+
 from equipos.models import Equipo
 
+
 class EquiposForm(ModelForm):
+
     class Meta:
         model = Equipo
-        fields = ['imei']
+        fields = '__all__'

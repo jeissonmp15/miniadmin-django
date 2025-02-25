@@ -12,7 +12,6 @@ class EquiposListView(ListView):
     model = Equipo
     template_name = 'equipos/equipos.html'
 
-
     def get_queryset(self) -> QuerySet[Equipo]:
         return self.model.objects.only('id', 'imei')
 
@@ -30,13 +29,12 @@ class EquiposCreateView(EquiposCreateUpdateViewMixin, CreateView):
 
 
 class EquiposUpdateView(EquiposCreateUpdateViewMixin, UpdateView):
-    def get_queryset(self) -> QuerySet[Equipo]:
-        return self.model.objects.all()
+    pass
 
 
 class EquiposDetailView(DetailView):
     model = Equipo
-    fields = ['imei', 'simcard', 'operador', 'activo', 'cliente']
+    fields = ['imei', 'simcard', 'activo', 'cliente']
     template_name = 'equipos/equipo-detalle.html'
     context_object_name = 'instancia'
 

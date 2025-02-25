@@ -12,7 +12,7 @@
     {% if object_list %}
         <ul>
         {% for eq in object_list %}
-            <li><a href="{% url 'equipos:detail' eq.id %}"></a>{{ eq.imei }}     <a href="{% url 'equipos:delete' eq.id %}">X</a> </a></li>
+            <li><a href="{% url 'equipos:detail' eq.id %}">{{ eq.imei }}</a> <a href="{% url 'equipos:delete' eq.id %}">X</a></li>
         {% endfor %}
         </ul>
     {% else %}
